@@ -1,0 +1,398 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: monospace;
+    color: #fff;
+    /* background-color: #111; */
+}
+body,html{
+    width: 100%;
+    height: 100%;
+}
+#nav{
+    width: 100%;
+    height: 100px;
+    /* background-color: red; */
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 70px;
+    padding: 20px 120px;
+    position: fixed;
+    z-index: 98;
+}
+#nav img{
+    width: 90px;
+}
+#nav h4{
+    font-size: 17px;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+#cursor{
+    height: 20px;
+    width: 20px;
+    background-color: #95C11E;
+    border-radius: 50%;
+    position: fixed;
+    transition: all linear 0.2s;
+    z-index: 99;
+}
+#cursor-blur{
+    height: 270px;
+    width: 270px;
+    border-radius: 50%;
+    position: fixed;
+    background-color: #b6ea2577;
+    filter: blur(80px);
+    z-index: 9;
+}
+video{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    position: fixed;
+    z-index: -2;
+}
+
+#main{
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.37);
+}
+
+#page1{
+     height: 100vh;
+     width: 100%;
+     position: relative;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     flex-direction: column;
+     text-align: center;
+     padding: 0px 20px;
+     z-index: 10;
+}
+#page1 #arrow{
+    width: 150px;
+    height: 150px;
+    background-color: red;
+    display: flex;
+    align-items: center;
+    border-radius: 50%;
+    justify-content: center;
+    position: absolute;
+    bottom: 0;
+    left: -2%;
+    background-color: transparent;
+    transition: all ease 0.4s;
+    border: 2px solid #95C11E;
+}
+#page1 #arrow i{
+    font-size: 40px;
+}
+#page1 #arrow:hover{
+    scale: 0.4;
+    background-color: #95C11E;
+}
+#page1 h1{
+    font-size: 140px;
+    font-weight: 900;
+    position: relative;
+}
+#page1 h1::before{
+    content: 'EAT. DRINK. PLAY.';
+    position: absolute;
+    color: black;
+    top: -5px;
+    left: -5px;
+    -webkit-text-stroke: 2px #95C11E;
+    z-index: -1;
+}
+#page1 h2{
+    font-size: 33px;
+    font-weight: 800;
+}
+#page1 p{
+    font-size: 18px;
+    font-weight: 500;
+    width: 40%;
+}
+
+#page2{
+    min-height: 100vh;
+    width: 100%;
+    z-index: 10;
+}
+
+#scroller{
+    /* background-color: red; */
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    position: relative;
+    z-index: 10;
+}
+#scroller::-webkit-scrollbar{
+    display: none;
+}
+#scroller-in-1{
+    display: inline-block;
+    white-space: nowrap;
+    animation-name: scroll;
+    animation-duration: 20s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+
+}
+#scroller-in-2{
+    display: inline-block;
+    white-space: nowrap;
+    animation-name: scroll;
+    animation-duration: 20s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+
+}
+#scroller h4{
+    text-transform: uppercase;
+    display: inline-block;
+    font-size: 90px;
+    font-weight: 900;
+    margin-right: 15px;
+    font-family: gilroy;
+    transition: all linear 0.5s;
+    color: transparent;
+    -webkit-text-stroke: 2px #95C11E;
+}
+#scroller h4:hover{
+    color: #95C11E;
+}
+
+#about-us{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 20px 40px;
+    height: 40vh;
+    position: relative;
+    z-index: 10;
+    /* background-color: red; */
+}
+#about-us img{
+    border-radius: 20px;
+    height: 180px;
+    object-fit: cover;
+}
+#about-us-in{
+    margin: 20px;
+    text-align: center;
+    width: 50%;
+}
+#about-us-in h3{
+    font-size: 50px;
+    font-weight: 900;
+    margin-bottom: 30px;
+}
+#about-us-in p{
+    font-size: 20px;
+    line-height: 26px;
+}
+
+#cards-container{
+    /* background-color: red; */
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    position: relative;
+    z-index: 11;
+}
+.card{
+    height: 80%;
+    width: 24%;
+    background-color: blue;
+    border-radius: 20px;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    transition: all linear 0.5s;
+    
+}
+#card1{
+    background-image: url(https://sidcup-golf-family.netlify.app/Assests/card1.avif);
+}
+#card2{
+    background-image: url(https://sidcup-golf-family.netlify.app/Assests/card2.webp);
+}
+#card3{
+    background-image: url(https://sidcup-golf-family.netlify.app/Assests/card3.avif);
+}
+.overlay{
+    height: 100%;
+    width: 100%;
+    background-color: #95C11E;
+    padding:32px;
+    opacity: 0;
+    padding-top: 100px;
+    text-align: center;
+    transition: all linear 0.5s;
+}
+.overlay h4{
+    color: #000;
+    font-size: 32px;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 20px;
+    
+}
+.overlay p{
+    color: #000;
+    font-size: 20px;
+    
+}
+.card:hover .overlay{
+    opacity: 1;
+}
+.card:hover{
+    transform: rotate3d(-1,1,-0.2,15deg)
+}
+#green-div{
+    background: linear-gradient(to top right, #95C11E,#38AF34);
+    display: flex;
+    height: 30vh;
+    align-items: center;
+    justify-content: space-between;
+}
+#green-div img{
+    height: 100%;
+    object-fit: cover;
+    width: 10%;
+}
+#green-div h4{
+    font-size: 24px;
+    font-weight: 800;
+    width: 40%;
+    line-height: 1.5;
+    text-align: center;
+    color: #000;
+}
+#page3{
+    height: 100vh;
+    width: 100%;
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+#page3>p{
+    font-size: 28px;
+    font-weight: 700;
+    width: 50%;
+    line-height: 1.3;
+    text-align: center;
+}
+#page3>img{
+    height: 70px;
+    position: absolute;
+}
+#page3 #colon1{
+    left: 18%;
+    top: 23%;
+}
+#page3 #colon2{
+    right: 18%;
+    bottom: 22%;
+}
+
+#page4{
+    height: 50vh;
+    width: 100%;
+    /* background-color: red; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    gap: 70px;
+}
+#page4 h1{
+    font-size: 100px;
+    position: absolute;
+    font-weight: 900;
+    color: black;
+    text-transform: uppercase;
+    font-family: gilroy;
+    -webkit-text-stroke: 2px #fff;
+    top: 0;
+}
+.elem{
+    width: 27%;
+    height: 57%;
+overflow: hidden;
+border-radius: 20px;
+    background-color: #95C11E;
+    position: relative;
+
+}
+.elem img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all ease 0.5s;
+    scale: 1.1;
+}
+.elem:hover h2{
+    color: #fff;
+    background-color: transparent;
+}
+.elem:hover img{
+    scale:1;
+}
+.elem h2{
+    height: 100%;
+    width: 100%;
+    background-color: #95C11E;
+    display: flex;
+    font-weight: 800;
+    transition: all ease 0.7s;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    color: #000;
+    position: absolute;
+    z-index: 10;
+}
+#footer{
+    height: 40vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background: linear-gradient(to left bottom,#38AF34,#95C11E);
+    padding: 15px 80px;
+}
+#footer img{
+    width: 120px;
+}
+#footer h2{
+    text-transform: uppercase;
+    font-size: 35px;
+    font-weight: 600;
+    color: #000;
+}
+#footer p{
+    font-size: 20px;
+    font-weight: 600;
+    color: #000;
+}
+
+@keyframes scroll {
+    from{
+        transform: translateX(0);
+    }
+    to{
+        transform: translateX(-100%);
+    }
+}
