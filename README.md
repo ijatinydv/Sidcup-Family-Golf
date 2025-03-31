@@ -37,6 +37,10 @@ A modern, animated website for Sidcup Family Golf, featuring a responsive design
 2. Open `index.html` in your web browser
 3. No additional setup required - the project uses CDN links for external resources
 
+## Live Demo
+
+Visit the live demo of the website at: [Sidcup Family Golf](https://sidcup-family-golf-pi.vercel.app/)
+
 ## Dependencies
 
 - GSAP (GreenSock Animation Platform) - For smooth animations
